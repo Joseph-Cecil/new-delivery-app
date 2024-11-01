@@ -33,7 +33,7 @@ type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> &{
   height ?: number | string;
   src: string;
   className ?: string;
-  fill ?: unknown;
+  fill ?: boolean;
   alt?: string;
   blurDataURL ?: string
 };
