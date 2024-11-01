@@ -38,6 +38,7 @@ type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> &{
   blurDataURL ?: string
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const CarouselContext = createContext<{
   onCardClose: (index: number) => void;
   currentIndex: number;
@@ -191,6 +192,7 @@ export const Card = ({
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   useOutsideClick(containerRef, () => handleClose());
@@ -287,7 +289,7 @@ export const BlurImage = ({
 }: ImageProps) => {
   const [isLoading, setLoading] = useState(true);
   return (
-    <img
+    <img style={{width:'100%', height:'100%'}}
       className={cn(
         "transition duration-300",
         isLoading ? "blur-sm" : "blur-0",
